@@ -1,0 +1,15 @@
+Options +FollowSymlinks
+ReWriteEngine On
+
+
+#rule for calling the page
+ReWriteRule ^search/cari?s=([a-zA-Z0-9]+)/?$ index.php?page=search&s=$1
+ReWriteRule ^/?([a-zA-Z0-9]+)/?$ index.php?page=$1
+ReWriteRule ^/?([a-zA-Z0-9]+)/page/([a-zA-Z0-9]+)/?$ index.php?page=$1&paging=$2
+ReWriteRule ^/?([a-zA-Z0-9]+)/([0-9]+)/?$ index.php?page=$1&id=$2
+
+#calling the page using asp file
+ReWriteRule ^search.asp/cari?s=([a-zA-Z0-9]+)/?$ index.php?page=search&s=$1
+ReWriteRule ^/?([a-zA-Z0-9]+).asp/?$ index.php?page=$1
+ReWriteRule ^/?([a-zA-Z0-9]+).asp/page/([a-zA-Z0-9]+)/?$ index.php?page=$1&paging=$2
+ReWriteRule ^/?([a-zA-Z0-9]+).asp/([0-9]+)/?$ index.php?page=$1&id=$2
